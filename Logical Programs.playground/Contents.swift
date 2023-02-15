@@ -16,14 +16,12 @@ func palindrome(str : String){
     for i in str{
         result = "\(i)" + result
     }
-    print(result)
     if result == str{
         print("Palindrome Str")
     }else{
         print("Could Not Palindrome Str")
     }
 }
-palindrome(str: "909090909")
 
 //3 Swap Value Without Using Any Variable
 func swapString(){
@@ -81,23 +79,7 @@ func anagram(){
 }
 
 //8 Find Prime Number From N Number
-func prime(){
-    var flag : Bool = false;
-    let number : Int = 13;
-    for i in 2...number/2 {
-        if(number % i == 0){
-            flag = true
-            break;
-        }
-    }
-    if flag == false {
-        print("\(number ) is prime!");
-    } else {
-        print("\(number ) is not prime!");
-    }
-}
-
-func primeNum(num : Int) -> Bool{
+func primNum(num : Int) -> Bool{
     if(num == 1 || num == 0){
         return false
     }
@@ -109,7 +91,7 @@ func primeNum(num : Int) -> Bool{
     return true
 }
 for i in 1...20{
-   if (primeNum(num: i)){
+   if (primNum(num: i)){
       print(i)
    }
 }
