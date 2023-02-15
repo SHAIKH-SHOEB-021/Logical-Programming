@@ -72,15 +72,18 @@ func evenNumber(){
     }
 }
 
+
 //7 Logic For Anagram Program
-func anagram(){
-    let fValue = "RACE"
-    let sValue = "CARE"
-    if fValue.count == sValue.count{
-        print("Success")
-    }else{
-        print("Unsuccess")
-    }
+func anagram(fValue : String, sValue : String) -> Bool{
+    let FV = fValue.sorted()
+    let SV = sValue.sorted()
+    return FV == SV
+}
+let Check = anagram(fValue: "listen", sValue: "silent")
+if Check == true{
+    //print("Anagram String")
+}else{
+    //print("Not Anagram String")
 }
 
 
@@ -111,4 +114,20 @@ func missingElement(number : [Int]){
         }
     }
 }
-missingElement(number: [1, 2, 4, 6, 7, 9, 12])
+//missingElement(number: [1, 2, 4, 6, 7, 9, 12])
+
+
+//10 Getting Square Root of Given Number
+func findSquareRoot(number: Double) -> Double {
+    var guess = number / 2.0
+    var lastGuess = 0.0
+    
+    while guess != lastGuess {
+        lastGuess = guess
+        guess = (guess + number / guess) / 2.0
+    }
+    return guess
+}
+let number = 25.0
+let squareRoot = findSquareRoot(number: number)
+print("The square root of \(number) is \(squareRoot)")
