@@ -10,6 +10,7 @@ func reverseString(str : String){
     print(result)
 }
 
+
 //2 Find String Palindrome or Not
 func palindrome(str : String){
     var  result = ""
@@ -23,6 +24,7 @@ func palindrome(str : String){
     }
 }
 
+
 //3 Swap Value Without Using Any Variable
 func swapString(){
     var a = 10
@@ -31,6 +33,7 @@ func swapString(){
     print("a = \(a)")
     print("b = \(b)")
 }
+
 
 //4 Print Fibonacci Series With Recursion
 func fibonacci(n: Int) -> Int {
@@ -44,6 +47,7 @@ func fibonacci(n: Int) -> Int {
 //    print(fibonacci(n: i))
 //}
 
+
 //5 Print Fibonacci Series Without Recursion
 func recursion(){
     var n1 = 0
@@ -56,6 +60,7 @@ func recursion(){
         print(n1)
     }
 }
+
 
 //6 Find Even Numbers in A List
 func evenNumber(){
@@ -77,6 +82,7 @@ func anagram(){
         print("Unsuccess")
     }
 }
+
 
 //8 Find Prime Number From N Number
 func primNum(num : Int) -> Bool{
