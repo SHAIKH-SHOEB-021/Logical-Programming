@@ -40,11 +40,11 @@ func fibonacci(n: Int) -> Int {
         return fibonacci(n: n - 1) + fibonacci(n: n - 2)
     }
 }
-for i in 1...10{
-    ///print(fibonacci(n: i))
-}
+//for i in 1...10{
+//    print(fibonacci(n: i))
+//}
 
-//5 Print Fibonacci Series With Recursion
+//5 Print Fibonacci Series Without Recursion
 func recursion(){
     var n1 = 0
     var n2 = 1
@@ -90,8 +90,19 @@ func primNum(num : Int) -> Bool{
     }
     return true
 }
-for i in 1...20{
-   if (primNum(num: i)){
-      print(i)
-   }
+//for i in 1...20{
+//   if (primNum(num: i)){
+//      print(i)
+//   }
+//}
+
+
+//9 Find Missing Element From Array
+func missingElement(number : [Int]){
+    for i in 1...number.max()!{
+        if !number.contains(i){
+            print(i)
+        }
+    }
 }
+missingElement(number: [1, 2, 4, 6, 7, 9, 12])
