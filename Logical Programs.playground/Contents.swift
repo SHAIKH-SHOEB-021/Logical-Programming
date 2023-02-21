@@ -1,7 +1,7 @@
 import UIKit
 
 
-//1 Reverse String  Program Using Loop
+///1 Reverse String  Program Using Loop
 func reverseString(str : String){
     var result = ""
     for i in str{
@@ -11,7 +11,7 @@ func reverseString(str : String){
 }
 
 
-//2 Find String Palindrome or Not
+///2 Find String Palindrome or Not
 func palindrome(str : String){
     var  result = ""
     for i in str{
@@ -25,7 +25,7 @@ func palindrome(str : String){
 }
 
 
-//3 Swap Value Without Using Any Variable
+///3 Swap Value Without Using Any Variable
 func swapString(){
     var a = 10
     var b = 15
@@ -35,7 +35,7 @@ func swapString(){
 }
 
 
-//4 Print Fibonacci Series With Recursion
+///4 Print Fibonacci Series With Recursion
 func fibonacci(n: Int) -> Int {
     if n <= 1 {
         return n
@@ -48,7 +48,7 @@ func fibonacci(n: Int) -> Int {
 //}
 
 
-//5 Print Fibonacci Series Without Recursion
+///5 Print Fibonacci Series Without Recursion
 func recursion(){
     var n1 = 0
     var n2 = 1
@@ -62,7 +62,7 @@ func recursion(){
 }
 
 
-//6 Find Even Numbers in A List
+///6 Find Even Numbers in A List
 func evenNumber(){
     let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     for even in list{
@@ -73,7 +73,7 @@ func evenNumber(){
 }
 
 
-//7 Logic For Anagram Program
+///7 Logic For Anagram Program
 func anagram(fValue : String, sValue : String) -> Bool{
     let FV = fValue.sorted()
     let SV = sValue.sorted()
@@ -87,7 +87,7 @@ if Check == true{
 }
 
 
-//8 Find Prime Number From N Number
+///8 Find Prime Number From N Number
 func primNum(num : Int) -> Bool{
     if(num == 1 || num == 0){
         return false
@@ -106,7 +106,7 @@ func primNum(num : Int) -> Bool{
 //}
 
 
-//9 Find Missing Element From Array
+///9 Find Missing Element From Array
 func missingElement(number : [Int]){
     for i in 1...number.max()!{
         if !number.contains(i){
@@ -117,7 +117,7 @@ func missingElement(number : [Int]){
 //missingElement(number: [1, 2, 4, 6, 7, 9, 12])
 
 
-//10 Getting Square Root of Given Number
+///10 Getting Square Root of Given Number
 func findSquareRoot(number: Double) -> Double {
     var guess = number / 2.0
     var lastGuess = 0.0
@@ -130,4 +130,17 @@ func findSquareRoot(number: Double) -> Double {
 }
 let number = 25.0
 let squareRoot = findSquareRoot(number: number)
-print("The square root of \(number) is \(squareRoot)")
+//print("The square root of \(number) is \(squareRoot)")
+
+
+///11 Two Different Logic To Find All Duplicate Number In An Array
+let numbers = [1, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9]
+var duplicates = [Int]()
+for i in 0..<numbers.count {
+    for j in i+1..<numbers.count {
+        if numbers[i] == numbers[j] {
+            duplicates.append(numbers[i])
+        }
+    }
+}
+print(duplicates)
