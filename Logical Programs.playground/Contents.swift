@@ -134,13 +134,14 @@ let squareRoot = findSquareRoot(number: number)
 
 
 ///11 Two Different Logic To Find All Duplicate Number In An Array
-let numbers = [1, 2, 3, 4, 5, 5, 6, 7, 8, 8, 9]
-var duplicates = [Int]()
-for i in 0..<numbers.count {
-    for j in i+1..<numbers.count {
-        if numbers[i] == numbers[j] {
-            duplicates.append(numbers[i])
-        }
+let numbers = [1, 2, 3, 4, 5, 5, 6, 7, 8, 9]
+var numberSet = Set<Int>()
+var duplicates = Set<Int>()
+for number in numbers {
+    if numberSet.contains(number) {
+        duplicates.insert(number)
+    } else {
+        numberSet.insert(number)
     }
 }
 print(duplicates)
