@@ -90,7 +90,7 @@ func anagram(fValue : String, sValue : String) -> Bool{
     let SV = sValue.sorted()
     return FV == SV
 }
-let Check = anagram(fValue: "listen", sValue: "silent")
+let Check = anagram(fValue: "Listen", sValue: "Silent")
 if Check == true{
     //print("Anagram String")
 }else{
@@ -99,10 +99,10 @@ if Check == true{
 
 ///8 Find Prime Number From N Number
 func primeNum(num : Int){
-    var flag = false
+    var flag = true
     for i in 2..<num{
         if num % i == 0{
-            flag = true
+            flag = false
         }
     }
     if flag == true{
@@ -175,3 +175,42 @@ func findSecondLargestNumber(in array: [Int]) -> Int? {
     return secondLargest != Int.min ? secondLargest : nil
 }
 let logest = findSecondLargestNumber(in: numbers)
+
+
+func starPatternLeft(){
+    let num = 5
+    for i in 1...num{
+        for _ in 0..<(num-i){
+            print(" ", terminator: "")
+        }
+        for _ in 0..<i{
+            print("*", terminator: "")
+        }
+        print("")
+    }
+    for a in 1...num{
+        for _ in 0..<a{
+            print(" ", terminator: "")
+        }
+        for _ in 0..<(num-a){
+            print("*", terminator: "")
+        }
+        print("")
+    }
+    
+}
+
+func starPatterRight(){
+    for a in 1...5{
+        for _ in 1...a{
+           print("*", terminator: "")
+        }
+        print("")
+    }
+    for i in 1...5{
+        for _ in 0..<(5-i){
+            print("*", terminator: "")
+        }
+        print("")
+    }
+}
