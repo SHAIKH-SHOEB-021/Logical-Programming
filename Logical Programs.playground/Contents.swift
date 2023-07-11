@@ -1,53 +1,122 @@
 import UIKit
 
-///1 Reverse String  Program Using Loop
-func reverseStr(str : String){
-    var result = ""
-    for i in str {
-        result = "\(i)" + result
+///1 Find Second Largest Element
+func findSecondLargestElement(arr: [Int]) -> Int? {
+    guard arr.count >= 2 else {
+        return nil
     }
-    print(result)
-}
 
-///2 Find String Palindrome or Not
-func palindromeStr(str : String){
-    var result = ""
-    for i in str {
-        result = "\(i)" + result
+    var largest = arr[0]
+    var secondLargest = 0
+    
+    for num in arr {
+        if num > largest {
+            secondLargest = largest
+            largest = num
+        }else if num != largest && (secondLargest == 0 || num > secondLargest) {
+            secondLargest = num
+        }
     }
-    if str == result{
-        print("Palindrome String")
-    }else{
-        print("Not Palindrome String")
-    }
+    return secondLargest
 }
+var array = [99, 33, 44, 11, 66, 55, 77, 22]
+print("\(findSecondLargestElement(arr: array)!)")
 
-///Check Palindrome Number
-func palindromeNum(){
-    var num = 124
-    let org = num
+
+///2 Reverse Integer With Out Converting String
+func reverseInteger(element: Int) -> Int{
+    var number = element
     var reminder = 0
     var reverse = 0
-    while num != 0 {
-        reminder = num % 10
+    while number != 0 {
+        reminder = number % 10
         reverse = reverse * 10 + reminder
-        num = num / 10
+        number = number / 10
     }
-    if reverse == org{
-        print("Palindrome Number")
+    return reverse
+}
+
+
+///3 Swap Value Without Using Any Variable
+func SwapValue() -> String{
+    var a = 10
+    var b = 12
+
+    a = a + b
+    b = a - b
+    a = a - b
+
+    return "Swapped values: a = \(a), b = \(b)"
+}
+
+
+///4 Reverse String
+func reverseString(str: String) -> String {
+    var result = ""
+    for i in str {
+        result = "\(i)" + result
+    }
+    return result
+}
+
+
+///5 Find The Anagram String
+func anagramString(firstStr: String, secondStr: String) -> String {
+    var message = ""
+    var firstString = firstStr.sorted()
+    var secondString = secondStr.sorted()
+    if firstString == secondString {
+        message = "Anagram String"
     }else{
-        print("Not Palindrome Number")
+        message = "Not Anagram String"
+    }
+    return message
+}
+
+
+///6 Find The Given String is Palindrome or Not
+func palindromeString(str: String) -> String {
+    var result = ""
+    var org = str
+    var message = ""
+    for i in str {
+        result = "\(i)" + result
+    }
+    if org == result {
+        message = "Palindrome String"
+    }else{
+        message = "Not Palindrome String"
+    }
+    return message
+}
+
+
+///10 Find Even Numbers in A List
+func evenNumber(){
+    let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+    for even in list{
+        if even % 2 == 0{
+            print(even)
+        }
     }
 }
 
-///3 Swap Value Without Using Any Variable
-func swapValue(){
-    var a = 10
-    var b = 12
-    (a, b) = (b, a)
-    print("a = \(a)")
-    print("b = \(b)")
-}
+
+///8 Find Prime Number From N Number
+//func primeNum(num : Int){
+//    var flag = true
+//    for i in 2..<num{
+//        if num % i == 0{
+//            flag = false
+//        }
+//    }
+//    if flag == true{
+//        print("\(num) is Prime Number")
+//    }else{
+//        print("\(num) is not Prime Number")
+//    }
+//}
+
 
 ///4 Print Fibonacci Series With Recursion
 func fibonacci(n: Int) -> Int {
@@ -72,29 +141,6 @@ func recursion(){
         n2 = nR + n2
         print(n1)
     }
-}
-
-///6 Find Even Numbers in A List
-func evenNumber(){
-    let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-    for even in list{
-        if even % 2 == 0{
-            print(even)
-        }
-    }
-}
-
-///7 Logic For Anagram Program
-func anagram(fValue : String, sValue : String) -> Bool{
-    let FV = fValue.sorted()
-    let SV = sValue.sorted()
-    return FV == SV
-}
-let Check = anagram(fValue: "Listen", sValue: "Silent")
-if Check == true{
-    //print("Anagram String")
-}else{
-    //print("Not Anagram String")
 }
 
 ///8 Find Prime Number From N Number
@@ -151,30 +197,6 @@ func duplicateNum(numbers: [Int]){
     print(duplicates)
 }
 //duplicateNum(numbers: [1, 2, 3, 4, 5, 5, 6, 7, 8, 9])
-
-
-///12 Find The Second Largest Number In An Array Without Sorting
-let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-func findSecondLargestNumber(in array: [Int]) -> Int? {
-    guard array.count >= 2 else {
-        return nil // array is too small to have a second largest number
-    }
-    
-    var largest = Int.min
-    var secondLargest = Int.min
-    
-    for num in array {
-        if num > largest {
-            secondLargest = largest
-            largest = num
-        } else if num > secondLargest && num != largest {
-            secondLargest = num
-        }
-    }
-    
-    return secondLargest != Int.min ? secondLargest : nil
-}
-let logest = findSecondLargestNumber(in: numbers)
 
 
 func starPatternLeft(){
