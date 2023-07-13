@@ -1,6 +1,6 @@
 import UIKit
 
-///1 Find Second Largest Element
+/// Find Second Largest Element
 func findSecondLargestElement(arr: [Int]) -> Int? {
     guard arr.count >= 2 else {
         return nil
@@ -20,10 +20,10 @@ func findSecondLargestElement(arr: [Int]) -> Int? {
     return secondLargest
 }
 var array = [99, 33, 44, 11, 66, 55, 77, 22]
-print("\(findSecondLargestElement(arr: array)!)")
+//print("\(findSecondLargestElement(arr: array)!)")
 
 
-///2 Reverse Integer With Out Converting String
+/// Reverse Integer With Out Converting String
 func reverseInteger(element: Int) -> Int{
     var number = element
     var reminder = 0
@@ -37,7 +37,7 @@ func reverseInteger(element: Int) -> Int{
 }
 
 
-///3 Swap Value Without Using Any Variable
+/// Swap Value Without Using Any Variable
 func SwapValue() -> String{
     var a = 10
     var b = 12
@@ -50,17 +50,7 @@ func SwapValue() -> String{
 }
 
 
-///4 Reverse String
-func reverseString(str: String) -> String {
-    var result = ""
-    for i in str {
-        result = "\(i)" + result
-    }
-    return result
-}
-
-
-///5 Find The Anagram String
+/// Find The Anagram String
 func anagramString(firstStr: String, secondStr: String) -> String {
     var message = ""
     var firstString = firstStr.sorted()
@@ -74,7 +64,38 @@ func anagramString(firstStr: String, secondStr: String) -> String {
 }
 
 
-///6 Find The Given String is Palindrome or Not
+/// Find Reverse String
+func reverseString(str: String) -> String {
+    var result = ""
+    for i in str {
+        result = "\(i)" + result
+    }
+    return result
+}
+
+
+/// Find Missing Element From Array
+func findMissingElements(array: [Int]) -> [Int] {
+    let sortedArray = array.sorted()
+    var missingElements = [Int]()
+    var currentNumber = sortedArray.first ?? 1
+    
+    for num in sortedArray {
+        while currentNumber < num {
+            missingElements.append(currentNumber)
+            currentNumber += 1
+        }
+        currentNumber += 1
+    }
+    return missingElements
+}
+
+let numberz = [1, 2, 4, 7, 9]
+let missingElements = findMissingElements(array: numberz)
+print(missingElements)
+
+
+/// Find The Given String is Palindrome or Not
 func palindromeString(str: String) -> String {
     var result = ""
     var org = str
@@ -91,47 +112,21 @@ func palindromeString(str: String) -> String {
 }
 
 
-///10 Find Even Numbers in A List
-func evenNumber(){
-    let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-    for even in list{
-        if even % 2 == 0{
-            print(even)
-        }
-    }
-}
-
-
-///8 Find Prime Number From N Number
-//func primeNum(num : Int){
-//    var flag = true
-//    for i in 2..<num{
-//        if num % i == 0{
-//            flag = false
-//        }
-//    }
-//    if flag == true{
-//        print("\(num) is Prime Number")
-//    }else{
-//        print("\(num) is not Prime Number")
-//    }
-//}
-
-
-///4 Print Fibonacci Series With Recursion
-func fibonacci(n: Int) -> Int {
+/// Print Fibonacci Series With Recursion
+func recursion(n: Int) -> Int {
     if n <= 1 {
         return n
     } else {
-        return fibonacci(n: n - 1) + fibonacci(n: n - 2)
+        return recursion(n: n - 1) + recursion(n: n - 2)
     }
 }
 //for i in 1...10{
-//    print(fibonacci(n: i))
+//    print(recursion(n: i))
 //}
 
-///5 Print Fibonacci Series Without Recursion
-func recursion(){
+
+/// Print Fibonacci Series Without Recursion
+func fibonacci(){
     var n1 = 0
     var n2 = 1
     var nR = 0
@@ -143,7 +138,19 @@ func recursion(){
     }
 }
 
-///8 Find Prime Number From N Number
+
+/// Find Even Numbers in A List
+func evenNumber(){
+    let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+    for even in list{
+        if even % 2 == 0{
+            print(even)
+        }
+    }
+}
+
+
+/// Find Prime Number From N Number
 func primeNum(num : Int){
     var flag = true
     for i in 2..<num{
@@ -158,17 +165,8 @@ func primeNum(num : Int){
     }
 }
 
-///9 Find Missing Element From Array
-func missingElement(number : [Int]){
-    for i in 1...number.max()!{
-        if !number.contains(i){
-            print(i)
-        }
-    }
-}
-//missingElement(number: [1, 2, 4, 6, 7, 9, 12])
 
-///10 Getting Square Root of Given Number
+/// Getting Square Root of Given Number
 func findSquareRoot(number: Double) -> Double {
     var guess = number / 2.0
     var lastGuess = 0.0
@@ -183,7 +181,26 @@ let number = 64.0
 let squareRoot = findSquareRoot(number: number)
 //print("The square root of \(number) is \(squareRoot)")
 
-///11 Two Different Logic To Find All Duplicate Number In An Array
+
+/// Two Different Logic To Find All Duplicate Number In An Array
+func findDuplicates(array: [Int]) -> [Int] {
+    var counts = [Int: Int]()
+    var duplicates = [Int]()
+    for num in array {
+        counts[num, default: 0] += 1
+    }
+    for (key, value) in counts {
+        if value > 1 {
+            duplicates.append(key)
+        }
+    }
+    return duplicates
+}
+let numbers = [1, 2, 3, 4, 5, 2, 4, 6, 7, 3]
+let duplicates = findDuplicates(array: numbers)
+//print(duplicates)
+
+
 func duplicateNum(numbers: [Int]){
     var numberSet = Set<Int>()
     var duplicates = Set<Int>()
@@ -199,40 +216,22 @@ func duplicateNum(numbers: [Int]){
 //duplicateNum(numbers: [1, 2, 3, 4, 5, 5, 6, 7, 8, 9])
 
 
-func starPatternLeft(){
-    let num = 5
-    for i in 1...num{
-        for _ in 0..<(num-i){
-            print(" ", terminator: "")
-        }
-        for _ in 0..<i{
-            print("*", terminator: "")
-        }
-        print("")
-    }
-    for a in 1...num{
-        for _ in 0..<a{
-            print(" ", terminator: "")
-        }
-        for _ in 0..<(num-a){
-            print("*", terminator: "")
-        }
-        print("")
-    }
+/// Find Pairs Whose Sum
+func findPairsWithSum100(array: [Int]) -> [(Int, Int)] {
+    var complementDict = [Int: Int]()
+    var pairs = [(Int, Int)]()
     
-}
-
-func starPatterRight(){
-    for a in 1...5{
-        for _ in 1...a{
-           print("*", terminator: "")
+    for num in array {
+        let complement = 100 - num
+        if let count = complementDict[complement], count > 0 {
+            pairs.append((num, complement))
+            complementDict[complement] = count - 1
+        } else {
+            complementDict[num, default: 0] += 1
         }
-        print("")
     }
-    for i in 1...5{
-        for _ in 0..<(5-i){
-            print("*", terminator: "")
-        }
-        print("")
-    }
+    return pairs
 }
+//let number = [80, 60, 10, 50, 30, 100, 0, 50]
+//let pairs = findPairsWithSum100(array: number)
+//print(pairs)
